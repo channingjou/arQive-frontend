@@ -53,21 +53,21 @@ export default function LoginForm() {
     let formIsValid = true;
     if (userForm.username === "") {
       formIsValid = false;
-      errors["username"] = "*Please enter your username.";
+      errors.username = "*Please enter your username.";
     }
     if (userForm.username !== "") {
-      errors["username"] = "";
+      errors.username = "";
     }
     if (userForm.password !== "") {
-      errors["password"] = "";
+      errors.password = "";
     }
     if (userForm.password.length < 8) {
       formIsValid = false;
-      errors["password"] = "*Password must be at least 8 characters long";
+      errors.password = "*Password must be at least 8 characters long";
     }
     if (userForm.password === "") {
       formIsValid = false;
-      errors["password"] = "*Please enter your password.";
+      errors.password = "*Please enter your password.";
     }
 
     setuserForm({
@@ -82,27 +82,22 @@ export default function LoginForm() {
       ...userForm,
       counter: userForm.counter++,
     });
+	e.preventDefault();
 
-    if (userForm.counter < 3) {
-      e.preventDefault();
-      dispatch(login(userForm.username, userForm.password));
-      setSubmitted(true);
-    } else {
-      e.preventDefault();
-
-      setattempts(true);
-
-      if (userForm.captchaIsVerified) {
-        e.preventDefault();
-
-        dispatch(login(userForm.username, userForm.password));
-        setSubmitted(true);
-      } else {
-        e.preventDefault();
-        alert("please verify that you are a human!");
-      }
-    }
-    validateForm();
+    if(validateForm()) {
+		if (userForm.counter < 3) {
+		dispatch(login(userForm.username, userForm.password));
+		setSubmitted(true);
+		} else {
+		setattempts(true);
+			if (userForm.captchaIsVerified) {
+				dispatch(login(userForm.username, userForm.password));
+				setSubmitted(true);
+			} else {
+				alert("please verify that you are a human!");
+			}
+		}
+	}
   };
 
   if (isAuthenticated) {
@@ -175,7 +170,7 @@ export default function LoginForm() {
               </Tooltip>
             </ClickAwayListener>
             <div className="form-group">
-              <recaptcha loginAttempts={attempts} />
+              <Recaptcha loginAttempts={attempts} />
               {attempts ? (
                 <Recaptcha
                   className="float-left"
