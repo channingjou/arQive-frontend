@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { login } from "../../actions/auth";
-import { LOGIN_SUCCESS, LOGIN_FAIL } from "../../actions/types";
 import Recaptcha from "react-recaptcha";
 import { useDispatch, useSelector } from "react-redux";
 import Tooltip from "@material-ui/core/Tooltip";
