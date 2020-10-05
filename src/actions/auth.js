@@ -61,16 +61,16 @@ export const login = (username, password) => (dispatch) => {
   // Request Body
   const body = JSON.stringify({ username, password });
 
-  axios
+  return axios
     .post(`${process.env.REACT_APP_ARQIVE}/auth/login`, body, config)
     .then((res) => {
-      dispatch({
+      return dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
       });
     })
     .catch((err) => {
-      dispatch({
+      return dispatch({
         type: LOGIN_FAIL,
         payload: err.response.data,
       });

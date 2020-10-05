@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { login } from "../../actions/auth";
+import { LOGIN_SUCCESS, LOGIN_FAIL } from "../../actions/types";
 import Recaptcha from "react-recaptcha";
 import { useDispatch, useSelector } from "react-redux";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -85,18 +86,17 @@ export default function LoginForm() {
 	e.preventDefault();
 
     if(validateForm()) {
-		if (userForm.counter < 3) {
-		dispatch(login(userForm.username, userForm.password));
-		setSubmitted(true);
-		} else {
-		setattempts(true);
-			if (userForm.captchaIsVerified) {
-				dispatch(login(userForm.username, userForm.password));
-				setSubmitted(true);
-			} else {
+		let willLogin = true;
+		if (userForm.counter >= 3) {
+			setattempts(true);
+			if (!userForm.captchaIsVerified) {
 				alert("please verify that you are a human!");
+				return;
 			}
 		}
+		dispatch(login(userForm.username, userForm.password));
+		setSubmitted(true);
+		setFailed(loginFail);
 	}
   };
 
