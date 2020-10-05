@@ -13,6 +13,7 @@ export default function LoginForm() {
   const { isAuthenticated, loginFail } = auth;
   const [open, setOpen] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [inProgress, setInProgress] = useState(false);
 
   const handleTooltipClose = () => {
     setOpen(false);
@@ -94,9 +95,12 @@ export default function LoginForm() {
 				return;
 			}
 		}
-		dispatch(login(userForm.username, userForm.password));
-		setSubmitted(true);
-		setFailed(loginFail);
+		dispatch(login(userForm.username, userForm.password)).then(function() {
+			setSubmitted(true);
+			setFailed(loginFail);
+			setInProgress(false);
+		});
+		setInProgress(true);
 	}
   };
 
@@ -185,6 +189,7 @@ export default function LoginForm() {
               <button
                 type="submit"
                 className="btn btn-primary float-right login-btn default-btn-purple"
+				disabled={inProgress}
               >
                 Login
               </button>
