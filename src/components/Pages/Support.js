@@ -52,7 +52,8 @@ export default function Support() {
                   </div>
                 </div>
               </Col>
-              <Col md={4}>
+              {/*
+			  <Col md={4}>
                 <div className="support-us-image-div">
                   <img
                     src={RedBubble}
@@ -65,6 +66,7 @@ export default function Support() {
                   </div>
                 </div>
               </Col>
+			  */}
             </Row>
             <Row style={{ paddingTop: "50px" }}>
               <Col md={12}>
