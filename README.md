@@ -4,6 +4,9 @@ This is the working front-end repo for The ArQive
 DO NOT use the front-end in GlobalTraqs repo.
 
 Project overview:
+This repo is pretty much working out of the box
+
+Please check Discord for .env file info 
 
 ## Available Scripts
 
