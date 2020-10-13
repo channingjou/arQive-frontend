@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This repo is pretty much working out of the box
+
+Please check Discord for .env file info 
+
 ## Available Scripts
 
 In the project directory, you can run:
