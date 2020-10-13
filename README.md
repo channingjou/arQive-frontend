@@ -3,10 +3,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This is the working front-end repo for The ArQive
 DO NOT use the front-end in GlobalTraqs repo.
 
-Project overview:
+## Project overview:
+
 This repo is pretty much working out of the box
 
-Please check Discord for .env file info 
+Please check Discord for .env file info
+
+Place .env file in the main ArQive directory with environment variables for either the Globaltraqs dev server or local Globaltraqs
+
+Check the GlobalTraqs repo for detailed steps in setting up backend (WIP)
 
 ## Available Scripts
 
