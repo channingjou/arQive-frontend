@@ -48,7 +48,7 @@ export const getUsers = () => (dispatch) => {
     })
     .catch
 
-    // => console.log(err)
+    //console.log(err)
     ();
 };
 

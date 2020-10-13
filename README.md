@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This is the working front-end repo for The ArQive
+DO NOT use the front-end in GlobalTraqs repo.
+
+Project overview:
+
 ## Available Scripts
 
 In the project directory, you can run:
