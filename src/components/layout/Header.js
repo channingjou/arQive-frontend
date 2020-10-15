@@ -83,9 +83,11 @@ function Header() {
   }, [location.pathname]);
 
   const idleTimer = useRef(null);
+  
+  // Redirect users to a blank page for privacy reasons on idle
   const onIdle = (e) => {
     dispatch(logout());
-    window.location.replace("http://www.google.com");
+    window.location.replace("about:blank");
   };
 
   const toggleAnonymous = () => {

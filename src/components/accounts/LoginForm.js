@@ -12,6 +12,7 @@ export default function LoginForm() {
   const { isAuthenticated, loginFail } = auth;
   const [open, setOpen] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [inProgress, setInProgress] = useState(false);
 
   const handleTooltipClose = () => {
     setOpen(false);
@@ -85,18 +86,20 @@ export default function LoginForm() {
 	e.preventDefault();
 
     if(validateForm()) {
-		if (userForm.counter < 3) {
-		dispatch(login(userForm.username, userForm.password));
-		setSubmitted(true);
-		} else {
-		setattempts(true);
-			if (userForm.captchaIsVerified) {
-				dispatch(login(userForm.username, userForm.password));
-				setSubmitted(true);
-			} else {
+		let willLogin = true;
+		if (userForm.counter >= 3) {
+			setattempts(true);
+			if (!userForm.captchaIsVerified) {
 				alert("please verify that you are a human!");
+				return;
 			}
 		}
+		dispatch(login(userForm.username, userForm.password)).then(function() {
+			setSubmitted(true);
+			setFailed(loginFail);
+			setInProgress(false);
+		});
+		setInProgress(true);
 	}
   };
 
@@ -185,6 +188,7 @@ export default function LoginForm() {
               <button
                 type="submit"
                 className="btn btn-primary float-right login-btn default-btn-purple"
+				disabled={inProgress}
               >
                 Login
               </button>
