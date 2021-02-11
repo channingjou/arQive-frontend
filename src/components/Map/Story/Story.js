@@ -28,7 +28,7 @@ function Story(props) {
     }
   }, [pin.id]);
 
-  const upvoteButoon = (
+  const upvoteButton = (
     <div
       className="login-link favorite-story-btn"
       style={{ cursor: "pointer " }}
@@ -86,7 +86,7 @@ function Story(props) {
         <Col md={1} className={"offset-md-1"}>
           {isAuthenticated
             ? props.pin && props.pin.updotes && <Upvote id={props.pin.id} />
-            : upvoteButoon}
+            : upvoteButton}
         </Col>
         <Col md={8} className={"offset-md-0 col-10 offset-1"}>
           <h2 className={"story-page-story-title"}>
