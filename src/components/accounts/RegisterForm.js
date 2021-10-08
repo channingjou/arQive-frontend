@@ -129,30 +129,29 @@ export default function RegisterForm() {
     return <Redirect to="/" />;
   }
   return (
-    <div className="main-content-div register-div">
-      <div className="col-md-6 m-auto register-col">
+    <div className='main-content-div register-div'>
+      <div className='col-md-6 m-auto register-col'>
         {/* if the form was submitted and register failed, show banner*/}
 
-        <div className="card card-body mt-5 register-card accounts-form-group">
-          <h2 className="text-center register-title">register</h2>
+        <div className='card card-body mt-5 register-card accounts-form-group'>
+          <h2 className='text-center register-title'>register</h2>
 
           {submitted && failed ? (
             <div
-              className="card card-body mt-5 alert alert-danger"
-              role="alert"
-            >
+              className='card card-body mt-5 alert alert-danger'
+              role='alert'>
               Username or Email already exists! Please use another.
             </div>
           ) : (
-            ""
+            ''
           )}
           <form onSubmit={onSubmit}>
-            <div className="form-group">
-              <label className="register-text">Username</label>
+            <div className='form-group'>
+              <label className='register-text'>Username</label>
               <input
-                type="text"
-                className="form-control"
-                name="username"
+                type='text'
+                className='form-control'
+                name='username'
                 onChange={(e) =>
                   setuserForm({
                     ...userForm,
@@ -161,16 +160,16 @@ export default function RegisterForm() {
                 }
                 value={userForm.username}
               />
-              <div name="userStatus" />
-              <p className="text-danger">{userForm.errors["username"]}</p>
-              <p className="text-danger"></p>
+              <div name='userStatus' />
+              <p className='text-danger'>{userForm.errors['username']}</p>
+              <p className='text-danger'></p>
             </div>
-            <div className="form-group">
-              <label className="register-text">Email</label>
+            <div className='form-group'>
+              <label className='register-text'>Email</label>
               <input
-                type="email"
-                className="form-control"
-                name="email"
+                type='email'
+                className='form-control'
+                name='email'
                 onChange={(e) =>
                   setuserForm({
                     ...userForm,
@@ -179,8 +178,8 @@ export default function RegisterForm() {
                 }
                 value={userForm.email}
               />
-              <div id="emailStatus" />
-              <p className="text-danger">{userForm.errors["email"]}</p>
+              <div id='emailStatus' />
+              <p className='text-danger'>{userForm.errors['email']}</p>
             </div>
             <ClickAwayListener onClickAway={handleTooltipClose}>
               <Tooltip
@@ -189,19 +188,18 @@ export default function RegisterForm() {
                 }}
                 onClose={handleTooltipClose}
                 open={open}
-                placement="bottom-start"
+                placement='bottom-start'
                 disableFocusListener
                 disableHoverListener
                 disableTouchListener
-                title="Must be at least eight characters with one Uppercase, Lowercase, Number, and Special Character."
-              >
-                <div className="form-group">
-                  <label className="register-text">Password</label>
+                title='Must be at least eight characters with one Uppercase, Lowercase, Number, and Special Character.'>
+                <div className='form-group'>
+                  <label className='register-text'>Password</label>
                   <input
                     onClick={handleTooltipOpen}
-                    type="password"
-                    className="form-control"
-                    name="password"
+                    type='password'
+                    className='form-control'
+                    name='password'
                     onChange={(e) =>
                       setuserForm({
                         ...userForm,
@@ -210,16 +208,16 @@ export default function RegisterForm() {
                     }
                     value={userForm.password}
                   />
-                  <p className="text-danger">{userForm.errors["password"]}</p>
+                  <p className='text-danger'>{userForm.errors['password']}</p>
                 </div>
               </Tooltip>
             </ClickAwayListener>
-            <div className="form-group">
-              <label className="register-text">Confirm Password</label>
+            <div className='form-group'>
+              <label className='register-text'>Confirm Password</label>
               <input
-                type="password"
-                className="form-control"
-                name="password2"
+                type='password'
+                className='form-control'
+                name='password2'
                 onChange={(e) =>
                   setuserForm({
                     ...userForm,
@@ -228,28 +226,27 @@ export default function RegisterForm() {
                 }
                 value={userForm.password2}
               />
-              <p className="text-danger">{userForm.errors["password2"]}</p>
+              <p className='text-danger'>{userForm.errors['password2']}</p>
             </div>
-            <div className="form-group">
+            <div className='form-group'>
               {/*This is the ReCaptcha*/}
               <Recaptcha
-                className="float-left"
-                sitekey="6LcAL78UAAAAAPOluo3jzUzXt5XLWKuUujc-_7QX"
-                render="explicit"
+                className='float-left'
+                sitekey='6Lc3HLocAAAAANUu9m12a_7eETOz45TAFO2uHsgB'
+                render='explicit'
                 verifyCallback={verifyCallback}
                 onloadCallback={reCaptchaLoaded}
               />
               <button
-                type="submit"
-                className="btn btn-primary float-right register-btn default-btn-purple"
-              >
+                type='submit'
+                className='btn btn-primary float-right register-btn default-btn-purple'>
                 Register
               </button>
             </div>
-            <p className="register-text">
-              Already have an account?{" "}
-              <span className="login-register-links">
-                <Link to="/login">Login</Link>
+            <p className='register-text'>
+              Already have an account?{' '}
+              <span className='login-register-links'>
+                <Link to='/login'>Login</Link>
               </span>
             </p>
           </form>

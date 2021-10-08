@@ -32,6 +32,7 @@ export default function LoginForm() {
 
   useEffect(() => {
     if (submitted) {
+      console.log("here");
       setFailed(loginFail);
     } else {
       setFailed(false);
@@ -83,53 +84,54 @@ export default function LoginForm() {
       ...userForm,
       counter: userForm.counter++,
     });
-	e.preventDefault();
+    e.preventDefault();
 
-    if(validateForm()) {
-		let willLogin = true;
-		if (userForm.counter >= 3) {
-			setattempts(true);
-			if (!userForm.captchaIsVerified) {
-				alert("please verify that you are a human!");
-				return;
-			}
-		}
-		dispatch(login(userForm.username, userForm.password)).then(function() {
-			setSubmitted(true);
-			setFailed(loginFail);
-			setInProgress(false);
-		});
-		setInProgress(true);
-	}
+    if (validateForm()) {
+      let willLogin = true;
+      if (userForm.counter >= 3) {
+        setattempts(true);
+        if (!userForm.captchaIsVerified) {
+          alert("please verify that you are a human!");
+          return;
+        }
+      }
+      dispatch(login(userForm.username, userForm.password)).then(function () {
+        setSubmitted(true);
+        setFailed(loginFail);
+        setInProgress(false);
+      });
+      setInProgress(true);
+    }
   };
 
   if (isAuthenticated) {
-    return <Redirect to="/" />;
+    return <Redirect to='/' />;
   }
+
+  let siteKey = "6Lc3HLocAAAAANUu9m12a_7eETOz45TAFO2uHsgB";
   return (
     <div className={"main-content-div login-div"}>
-      <div className="col-md-6 m-auto login-col">
+      <div className='col-md-6 m-auto login-col'>
         {/* if form was submitted and login failed then show an error banner*/}
 
-        <div className="card card-body mt-5 login-card accounts-form-group">
-          <h2 className="text-center login-title">Login</h2>
+        <div className='card card-body mt-5 login-card accounts-form-group'>
+          <h2 className='text-center login-title'>Login</h2>
           {submitted && failed ? (
             <div
-              className="card card-body mt-5 alert alert-danger"
-              role="alert"
-            >
+              className='card card-body mt-5 alert alert-danger'
+              role='alert'>
               Invalid username and/or password, please try again
             </div>
           ) : (
             ""
           )}
           <form onSubmit={submitForm}>
-            <div className="form-group">
-              <label className="login-text">Username</label>
+            <div className='form-group'>
+              <label className='login-text'>Username</label>
               <input
-                type="text"
-                className="form-control"
-                name="username"
+                type='text'
+                className='form-control'
+                name='username'
                 onChange={(e) =>
                   setuserForm({
                     ...userForm,
@@ -138,7 +140,7 @@ export default function LoginForm() {
                 }
                 value={userForm.username}
               />
-              <p className="text-danger">{userForm.errors["username"]}</p>
+              <p className='text-danger'>{userForm.errors["username"]}</p>
             </div>
             <ClickAwayListener onClickAway={handleTooltipClose}>
               <Tooltip
@@ -147,19 +149,18 @@ export default function LoginForm() {
                 }}
                 onClose={handleTooltipClose}
                 open={open}
-                placement="bottom-start"
+                placement='bottom-start'
                 disableFocusListener
                 disableHoverListener
                 disableTouchListener
-                title="Must be at least eight characters with one Uppercase, Lowercase, Number, and Special Character."
-              >
-                <div className="form-group">
-                  <label className="login-text">Password</label>
+                title='Must be at least eight characters with one Uppercase, Lowercase, Number, and Special Character.'>
+                <div className='form-group'>
+                  <label className='login-text'>Password</label>
                   <input
                     onClick={handleTooltipOpen}
-                    type="password"
-                    className="form-control"
-                    name="password"
+                    type='password'
+                    className='form-control'
+                    name='password'
                     onChange={(e) =>
                       setuserForm({
                         ...userForm,
@@ -168,17 +169,17 @@ export default function LoginForm() {
                     }
                     value={userForm.password}
                   />
-                  <p className="text-danger">{userForm.errors["password"]}</p>{" "}
+                  <p className='text-danger'>{userForm.errors["password"]}</p>{" "}
                 </div>
               </Tooltip>
             </ClickAwayListener>
-            <div className="form-group">
-              <Recaptcha loginAttempts={attempts} />
+            <div className='form-group'>
+              <recaptcha loginAttempts={attempts} />
               {attempts ? (
                 <Recaptcha
-                  className="float-left"
-                  sitekey="6LcAL78UAAAAAPOluo3jzUzXt5XLWKuUujc-_7QX"
-                  render="explicit"
+                  className='float-left'
+                  sitekey={siteKey}
+                  render='explicit'
                   verifyCallback={verifyCallback}
                   onloadCallback={reCaptchaLoaded}
                 />
@@ -186,23 +187,22 @@ export default function LoginForm() {
                 ""
               )}
               <button
-                type="submit"
-                className="btn btn-primary float-right login-btn default-btn-purple"
-				disabled={inProgress}
-              >
+                type='submit'
+                className='btn btn-primary float-right login-btn default-btn-purple'
+                disabled={inProgress}>
                 Login
               </button>
             </div>
-            <p className="login-text">
+            <p className='login-text'>
               Don't have an account?{" "}
-              <span className="login-register-links">
-                <Link to="/register">Register</Link>
+              <span className='login-register-links'>
+                <Link to='/register'>Register</Link>
               </span>
             </p>
-            <p className="login-text">
+            <p className='login-text'>
               Forgot Password?{" "}
-              <span className="login-register-links">
-                <Link to="/forgotPassword">Click here</Link>
+              <span className='login-register-links'>
+                <Link to='/forgotPassword'>Click here</Link>
               </span>
             </p>
           </form>
