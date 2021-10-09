@@ -1,45 +1,44 @@
-@import url("~react-leaflet-markercluster/dist/styles.min.css");
+/* @import url('~react-leaflet-markercluster/dist/styles.min.css');
 
 .top-bar {
-    padding: 18px 0px 10px 30px;
-    background-color: black;
-    min-height: 85px;
-    width: 100%;
+  padding: 18px 0px 10px 30px;
+  background-color: black;
+  min-height: 85px;
+  width: 100%;
 }
 
 .top-bar a {
-    text-decoration: none;
-    color: white;
-    padding-right: 40px;
+  text-decoration: none;
+  color: white;
+  padding-right: 40px;
 }
 
 .navigation-links {
-    float:  right;
-    font-size: 25px;
-    padding-top: 4px;
+  float: right;
+  font-size: 25px;
+  padding-top: 4px;
 }
 
 .top-bar a:hover {
-    color: gray;
-    text-decoration: none;
+  color: gray;
+  text-decoration: none;
 }
 
 .leaflet-container {
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-    z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
-
 
 .add-story-button {
-    position: absolute;
-    z-index: 1000;
-    float: right;
-    right: 20px;
-    top: 20px;
-}
+  position: absolute;
+  z-index: 1000;
+  float: right;
+  right: 20px;
+  top: 20px;
+} */
 
 /*.map {*/
 /*    width: 100%;*/
@@ -50,11 +49,105 @@
 /*    position: absolute;*/
 /*}*/
 
-.admin-moderator-edit {
-    float: right;
+/* .admin-moderator-edit {
+  float: right;
 }
 
 #world-map {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+} */
+
+@media screen and (max-width: 992px) {
+  .navbar-collapse {
+    background-color: black;
+    padding: 30px;
+    margin-left: -16px;
+  }
 }
+@media (max-width: 993px) {
+  .navbar-expand-lg > .container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    max-width: 100vw;
+    top: 0;
+    position: absolute;
+  }
+}
+.navbar-toggler {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+label {
+  margin-bottom: 0 !important;
+}
+label span.MuiTypography-root {
+  color: white;
+  font-size: 12px;
+}
+.MuiFormGroup-root {
+  align-items: center;
+  height: fit-content;
+}
+.MuiFormControlLabel-root {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+}
+.header-user-dropdown-button.btn {
+  padding: 0px !important;
+}
+
+.userDropdown {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
+.userLogin {
+  display: flex !important;
+  margin-left: auto;
+}
+
+#basic-navbar-nav {
+  max-width: 100vw;
+}
+@media screen and (max-width: 992px) {
+  .navbar-collapse {
+    background-color: black;
+    padding: 30px;
+    margin-left: -16px;
+    max-width: 100vw;
+  }
+.userLogin {
+  display: flex !important;
+  margin-left: auto;
+flex-direction: column;
+}
+}
+/* @media (min-width: 1175px) {
+  .navbar-expand-lg .navbar-collapse#basic-navbar-nav {
+    display: flex !important;
+    flex-basis: auto;
+  }
+}
+@media (max-width: 1175px) {
+  .navbar-expand-lg .navbar-collapse#basic-navbar-nav {
+    display: none !important;
+  }
+}
+@media (max-width: 1175px) {
+  .navbar-expand-lg .navbar-toggler {
+    display: block !important;
+  }
+} */
+/* @media (max-width: 1174px) {
+  .navbar-expand-lg .navbar-toggler {
+    display: none;
+  }
+} */
