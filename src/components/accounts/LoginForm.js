@@ -53,6 +53,10 @@ export default function LoginForm() {
   const validateForm = () => {
     let errors = {};
     let formIsValid = true;
+    console.log(userForm.username.length);
+    console.log(userForm.username);
+    console.log(userForm.password.length);
+    console.log(userForm.password);
     if (userForm.username === "") {
       formIsValid = false;
       errors.username = "*Please enter your username.";
