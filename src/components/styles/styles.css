@@ -57,7 +57,18 @@
   width: 100%;
   height: 100%;
 } */
-
+.MuiSwitch-colorSecondary.Mui-checked {
+  color: #00ce7d !important;
+}
+.MuiSwitch-colorSecondary {
+  color: #e63f52 !important;
+}
+.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+  background-color: #00ce7d !important;
+}
+.MuiSwitch-track {
+  background-color: #e63f52 !important;
+}
 @media screen and (max-width: 992px) {
   .navbar-collapse {
     background-color: black;
@@ -124,11 +135,11 @@ label span.MuiTypography-root {
     margin-left: -16px;
     max-width: 100vw;
   }
-.userLogin {
-  display: flex !important;
-  margin-left: auto;
-flex-direction: column;
-}
+  .userLogin {
+    display: flex !important;
+    margin-left: auto;
+    flex-direction: column;
+  }
 }
 /* @media (min-width: 1175px) {
   .navbar-expand-lg .navbar-collapse#basic-navbar-nav {
