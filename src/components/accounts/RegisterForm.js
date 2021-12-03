@@ -232,7 +232,7 @@ export default function RegisterForm() {
               {/*This is the ReCaptcha*/}
               <Recaptcha
                 className='float-left'
-                sitekey='6Lc3HLocAAAAANUu9m12a_7eETOz45TAFO2uHsgB'
+                sitekey='6LdvXyEdAAAAAOtm3wHoLVtkV9lBf98A1qans539'
                 render='explicit'
                 verifyCallback={verifyCallback}
                 onloadCallback={reCaptchaLoaded}
