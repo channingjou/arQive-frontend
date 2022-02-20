@@ -555,6 +555,16 @@ button {
   text-align: center;
 }
 
+.terms-of-service-full-page {
+  height: auto !important;
+  min-height: 100% !important;
+  width: 100%;
+  margin-right: 0px !important;
+  margin-top: 100px;
+  margin-left: 250px !important;
+  color: black;
+}
+
 .contactUs-header-active {
   color: #248dc1 !important;
 }
