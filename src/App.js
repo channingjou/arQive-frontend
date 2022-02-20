@@ -24,6 +24,7 @@ import ResetPasswordForm from "./components/accounts/ResetPasswordForm";
 import ContactUs from "./components/Pages/ContactUs";
 import ProfileDashboard from "./components/profile/ProfileDashboard";
 import NotFoundPage from "./components/Pages/NotFoundPage";
+import Terms from "./components/Pages/Terms";
 
 export default function App() {
   useEffect(() => store.dispatch(loadUser()), []);
@@ -55,6 +56,7 @@ export default function App() {
               <Route path="/resetPassword" component={ResetPasswordForm} />
               <Route path="/Support" component={Support} />
               <Route path="/ContactUs" component={ContactUs} />
+              <Route path="/Terms" component={Terms} />
               <Route path="*">
                 <NotFoundPage />
               </Route>
