@@ -244,10 +244,11 @@ export default function RegisterForm() {
               </button>
             </div>
             <p className='register-text'>
-              Already have an account?{' '}
+              Already have an account?{' '} <Link to='/login'>Login</Link>
+              <br/>
               By registering you are accepting the <Link to='/terms'>Terms of Service</Link>
               <span className='login-register-links'>
-                <Link to='/login'>Login</Link>
+
               </span>
             </p>
           </form>

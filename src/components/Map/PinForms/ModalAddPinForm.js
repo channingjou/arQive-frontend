@@ -14,12 +14,14 @@ import InputGroup from "react-bootstrap/InputGroup";
 import "react-datepicker/dist/react-datepicker.css";
 import TinyMCE from "react-tinymce";
 import DatePicker from "react-date-picker";
+import { useSelector } from "react-redux";
 
 // import
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 
 // setup
 const provider = new OpenStreetMapProvider();
+
 
 const labelStyle = {
   marginRight: "10px",
@@ -30,6 +32,9 @@ const dateStyle = {
   marginBottom: "auto",
 };
 function ModalAddPinForm(props) {
+  const auth = useSelector((state) => state.auth);
+
+const { isAuthenticated, user } = auth;
   const validateAddPinForm = async (e) => {
     e.preventDefault();
 
@@ -68,6 +73,7 @@ function ModalAddPinForm(props) {
 
   return (
     <>
+    {props.isAuthenticated && (
       <Modal
         isOpen={props.modalState}
         toggle={props.toggle}
@@ -292,6 +298,7 @@ function ModalAddPinForm(props) {
           </ModalFooter>
         </Form>
       </Modal>
+    )}
     </>
   );
 }
