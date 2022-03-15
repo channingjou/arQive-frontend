@@ -30,19 +30,6 @@ function ManageFlag() {
       <div className={"manage-paginate-buttons"}>
         <PrevNext next={flaggedPins.next} previous={flaggedPins.previous} />
       </div>
-      <div className="container-fluid">
-        <div className={"flag-input-div"}>
-          <span className="flag-num-label">flag number filter</span>
-          <Input
-            id="numOfFlags"
-            label="Number of flags to filter"
-            type="text"
-            className="flag-limit-input"
-            value={flagLimitNum}
-            onChange={(e) => setFlagLimitNum(e.target.value)}
-          />
-        </div>
-
         {flaggedPins.results && (
           <ListFlags
             pins={flaggedPins.results}
@@ -52,7 +39,6 @@ function ManageFlag() {
           />
         )}
       </div>
-    </div>
   );
 }
 
@@ -101,7 +87,7 @@ function ListFlags(props) {
         </thead>
         <tbody>
           {props.pins.map((pin, index) => {
-            if (pin.flagscore >= props.flagLimit) {
+            if (pin.flagscore >= 0) {
               return (
                 <tr key={index}>
                   <td>{pin.title}</td>
