@@ -15,29 +15,41 @@ import "react-datepicker/dist/react-datepicker.css";
 import TinyMCE from "react-tinymce";
 import DatePicker from "react-date-picker";
 import { useSelector } from "react-redux";
+import { useState, useRef, useEffect } from 'react'
 
 // import
 import { OpenStreetMapProvider } from "leaflet-geosearch";
+import { colors } from "@material-ui/core";
 
 // setup
 const provider = new OpenStreetMapProvider();
 
+//This boolean is used to check whether the inside of the return statement for
+//ModalAddPinForm is allowed to run. Boolean is allowed to changed depending on conditions.
+//WARNING: You cannot add any stories at all if okToPost is set to false initially
+const okToPost = {
+  ok: true,
+}
+
+const _okToPostAgain = () => {
+  okToPost.ok = true;
+}
 
 const labelStyle = {
   marginRight: "10px",
 };
+
 const dateStyle = {
   marginRight: "10px",
   marginTop: "auto",
   marginBottom: "auto",
 };
+
 function ModalAddPinForm(props) {
   const auth = useSelector((state) => state.auth);
-
-const { isAuthenticated, user } = auth;
+  const { isAuthenticated, user } = auth;
   const validateAddPinForm = async (e) => {
     e.preventDefault();
-
     let results = "";
 
     if (props.addAddress) {
@@ -46,7 +58,6 @@ const { isAuthenticated, user } = auth;
       let region = props.addPinValues.region;
       let country = props.addPinValues.country;
       let postCode = props.addPinValues.postCode;
-
       let addressQuery =
         address +
         " " +
@@ -67,13 +78,38 @@ const { isAuthenticated, user } = auth;
         props.addPinValues.longitude = Number(results[0].x);
       }
 
+      //props.handleAddPinSubmit() runs after the save button is pressed.
       props.handleAddPinSubmit();
+
+      //Does not allow application to add additional stories after successful post
+      okToPost.ok = false;
+
+      //setTimeOut function uses "private" method to set okToPost.ok to true,
+      //but only after a certain amount of time has passed. This forces users
+      //to wait a certain amount of time before posting again. 1 second = 1000
+      setTimeout(_okToPostAgain, 15000);
     }
+  };
+
+  if(okToPost.ok === false) {
+    return (
+      <>
+      <Modal
+        isOpen={props.modalState}
+        toggle={props.toggle}
+        size="sm"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <p>Please wait a few seconds before posting again</p>
+      </Modal>
+      </>
+    )
   };
 
   return (
     <>
-    {props.isAuthenticated && (
+    {props.isAuthenticated && okToPost.ok === true && (
       <Modal
         isOpen={props.modalState}
         toggle={props.toggle}
@@ -147,6 +183,7 @@ const { isAuthenticated, user } = auth;
                   />
                 </FormGroup>
                 <FormGroup>
+                  
                   <Label for="address">Postcode</Label>
                   <Input
                     className="form-control"
@@ -294,13 +331,15 @@ const { isAuthenticated, user } = auth;
             >
               Cancel
             </Button>
-            <Button className="default-btn-purple">Save</Button>
+            <Button className="default-btn-purple">
+                Save
+            </Button>
           </ModalFooter>
         </Form>
       </Modal>
     )}
     </>
-  );
+  )
 }
 
 export default ModalAddPinForm;

@@ -40,6 +40,7 @@ function Header() {
     supportUs: false,
     resources: false,
     contactUs: false,
+    credits: false,
   });
 
   let location = useLocation();
@@ -66,6 +67,7 @@ function Header() {
         supportUs: false,
         resources: false,
         contactUs: false,
+        credits: false,
       });
     } else if (currentPage === '/About') {
       setActivePages({
@@ -74,6 +76,7 @@ function Header() {
         supportUs: false,
         resources: false,
         contactUs: false,
+        credits: false,
       });
     } else if (currentPage === '/support') {
       setActivePages({
@@ -82,6 +85,7 @@ function Header() {
         supportUs: true,
         resources: false,
         contactUs: false,
+        credits: false,
       });
     } else if (currentPage === '/resources') {
       setActivePages({
@@ -90,6 +94,7 @@ function Header() {
         supportUs: false,
         resources: true,
         contactUs: false,
+        credits: false,
       });
     } else if (currentPage === '/ContactUs') {
       setActivePages({
@@ -98,6 +103,16 @@ function Header() {
         supportUs: false,
         resources: false,
         contactUs: true,
+        credita: false,
+      });
+    } else if (currentPage === '/Credits') {
+      setActivePages({
+        faq: false,
+        aboutUs: false,
+        supportUs: false,
+        resources: false,
+        contactUs: false,
+        credits: true,
       });
     } else {
       setActivePages({
@@ -106,6 +121,7 @@ function Header() {
         supportUs: false,
         resources: false,
         contactUs: false,
+        credits: false,
       });
     }
   }, [location.pathname]);
@@ -352,6 +368,18 @@ function Header() {
               }>
               Contact Us{' '}
             </Link>
+              
+            <Link
+              to='/Credits'
+              onClick={() => setExpanded(false)}
+              className={
+                activePages['Credits']
+                  ? 'credits-header-active nav-link header-nav-link credits-nav-link '
+                  : 'nav-link header-nav-link credits-nav-link '
+              }>
+              Credits{' '}
+            </Link>
+
             <div className='userLogin'>
               {isAuthenticated ? authLinks() : GuestLinks()}
             </div>
