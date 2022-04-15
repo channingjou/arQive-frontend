@@ -569,6 +569,18 @@ button {
   color: #248dc1 !important;
 }
 
+.credits-header-active {
+  color: #EF9F54 !important;
+}
+
+.credits-nav-link:hover {
+  color: #EF9F54 !important;
+}
+
+.credits-nav-link:focus {
+  color: #EF9F54 !important;
+}
+
 .support-us-header-active {
   color: #e01783 !important;
 }
@@ -1240,6 +1252,11 @@ react-date-picker--enabled {
   height: 100%;
 }
 
+.credits-page {
+  background: #EF9F54;
+  height: auto;
+}
+
 .favorite-stories {
   min-height: 100%;
   height: auto;
@@ -1800,4 +1817,12 @@ textarea {
 
 .navbar-brand {
   margin-right: 20px !important;
+}
+
+.credits-class-year {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  margin: 6px;
+  background-color: black;
 }

@@ -25,6 +25,7 @@ import ContactUs from "./components/Pages/ContactUs";
 import ProfileDashboard from "./components/profile/ProfileDashboard";
 import NotFoundPage from "./components/Pages/NotFoundPage";
 import Terms from "./components/Pages/Terms";
+import Credits from "./components/Pages/Credits";
 
 export default function App() {
   useEffect(() => store.dispatch(loadUser()), []);
@@ -40,6 +41,7 @@ export default function App() {
               <Route exact path="/story" component={MapDashboard} />
               <Route exact path="/story/:id" component={MapDashboard} />
               <Route exact path="/About" component={About} />
+              <Route exact path="/Credits" component={Credits} />
               <Route exact path="/resources" component={Resources} />
               <Route exact path="/faq" component={FAQ} />
               <Route exact path="/login" component={LoginForm} />
