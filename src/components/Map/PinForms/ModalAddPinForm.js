@@ -109,7 +109,7 @@ function ModalAddPinForm(props) {
 
   return (
     <>
-    {props.isAuthenticated && okToPost.ok === true && (
+    { okToPost.ok === true && (
       <Modal
         isOpen={props.modalState}
         toggle={props.toggle}
