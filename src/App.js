@@ -26,6 +26,7 @@ import ProfileDashboard from "./components/profile/ProfileDashboard";
 import NotFoundPage from "./components/Pages/NotFoundPage";
 import Terms from "./components/Pages/Terms";
 import Credits from "./components/Pages/Credits";
+import PrivacyStatement from "./components/Pages/App Privacy.js";
 
 export default function App() {
   useEffect(() => store.dispatch(loadUser()), []);
@@ -59,6 +60,7 @@ export default function App() {
               <Route path="/Support" component={Support} />
               <Route path="/ContactUs" component={ContactUs} />
               <Route path="/Terms" component={Terms} />
+              <Route path="/PrivacyPolicy"component={PrivacyStatement} />
               <Route path="*">
                 <NotFoundPage />
               </Route>
