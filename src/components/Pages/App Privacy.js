@@ -14,8 +14,8 @@ export default function PrivacyStatement() {
 
   return (
     <main className={"main-content-div"}>
-        <h1>Privacy Policy for The arQive</h1>
-        <p>At <a href="https://thearqive.com">the arQive</a>, we take the privacy and security of our users very seriously. This Privacy Policy outlines the types of information we collect and how we use, share, and protect that information.</p>
+        <h1>Privacy Policy for TheArqive.com</h1>
+        <p>At <a href="https://thearqive.com">TheArqive.com</a>, we take the privacy and security of our users very seriously. This Privacy Policy outlines the types of information we collect and how we use, share, and protect that information.</p>
 
         <section>
             <h2>Information We Collect</h2>
@@ -40,10 +40,10 @@ export default function PrivacyStatement() {
         </section>
 
         <section>
-            <h2>Sharing Your Information</h2>
+            <h2>Sharing Your Information</h2> 
             <p>We may share your information with third-party service providers who help us provide and improve our services. We may also share your information with law enforcement agencies, government bodies, or other third parties when we are required to do so by law.</p>
         </section>
-        
+
         <section>
             <h2>Protecting Your Information</h2>
             <p>We take reasonable measures to protect your information from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the internet or electronic storage is 100% secure. Therefore, we cannot guarantee the absolute security of your information.</p>
@@ -86,7 +86,10 @@ export default function PrivacyStatement() {
         <section>
             <h2>Questions and Concerns</h2>
             <p>If you have any questions or concerns about our Privacy Policy, please contact us at thearqive@gmail.com.</p>
-            <p>Additional Information</p>
+        </section>
+
+        <section>
+        <h2>Additional Information</h2>
             <ul>
                 <li>We do not knowingly collect personal information from children under the age of 13. If you are under 13, please do not provide us with any personal information.</li>
                 <li>We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new Privacy Policy on our website. Your continued use of our website after such modifications will constitute your agreement to the new terms.</li>
@@ -95,8 +98,9 @@ export default function PrivacyStatement() {
                 <li>Our website may contain links to third-party websites and services that are not owned or controlled by us. We are not responsible for the privacy practices or content of these third-party websites and services. We encourage you to review the privacy policies of these third-party websites and services before providing them with any personal information.</li>
                 <li>We may use your information to contact you with newsletters, marketing or promotional materials, and other information that may be of interest to you. You may opt-out of receiving any, or all, of these communications from us by following the unsubscribe link or instructions provided in any email we send.</li>
             </ul>
-            <p>If you have any questions or concerns about our Privacy Policy, please do not hesitate to contact us at thearqive@gmail.com</p>
         </section>
+
+        <p>If you have any questions or concerns about our Privacy Policy, please do not hesitate to contact us at thearqive@gmail.com</p>
     </main>
   );
 }
