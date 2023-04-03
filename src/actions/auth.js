@@ -112,7 +112,7 @@ export const register = ({ username, password, email }) => (dispatch) => {
 export const logout = () => (dispatch, getState) => {
   axios
     .post(
-      `${process.env.REACT_APP_ARQIVE}/auth/logout/`,
+      `${process.env.REACT_APP_ARQIVE}/auth/logout`,
       null,
       tokenConfig(getState)
     )
