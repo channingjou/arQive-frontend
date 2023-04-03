@@ -21,10 +21,6 @@ import {
 import {
   Navbar,
   Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
   Container,
 } from 'react-bootstrap';
 function Header() {
@@ -44,18 +40,15 @@ function Header() {
   });
 
   let location = useLocation();
-  const toggle = () => {
-    console.log(isDropdownOpen);
-    setIsDropdownOpen(!isDropdownOpen);
+  const toggleDropdown = () => {
+    setIsDropdownOpen(isDropdownOpen => !isDropdownOpen);
 
     setDropdownOpen(
       dropdownOpen == 'collapse navbar-collapse'
-        ? 'navbar-collapse collapse show'
+        ? 'collapse navbar-collaps show'
         : 'collapse navbar-collapse',
-    );
-    console.log(typeof dropdownOpen);
-    setDropdownOpen(!dropdownOpen);
-    console.log(isDropdownOpen);
+    )
+  
   };
 
   useEffect(() => {
@@ -129,7 +122,7 @@ function Header() {
   const idleTimer = useRef(null);
 
   // Redirect users to a blank page for privacy reasons on idle
-  const onIdle = (e) => {
+  const onIdle = () => {
     dispatch(logout());
     window.location.replace('about:blank');
   };
@@ -214,7 +207,7 @@ function Header() {
             outline
             isOpen={isDropdownOpen}
             nav={true}
-            onClick={toggle}>
+            toggle={toggleDropdown}>
             <DropdownToggle
               caret
               className='header-user-dropdown-button header-nav-link'>

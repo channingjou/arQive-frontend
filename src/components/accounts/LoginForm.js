@@ -112,7 +112,7 @@ export default function LoginForm() {
     return <Redirect to='/' />;
   }
 
-  let siteKey = "6Lc3HLocAAAAANUu9m12a_7eETOz45TAFO2uHsgB";
+  let siteKey = "6LdvXyEdAAAAAOtm3wHoLVtkV9lBf98A1qans539";
   return (
     <div className={"main-content-div login-div"}>
       <div className='col-md-6 m-auto login-col'>
