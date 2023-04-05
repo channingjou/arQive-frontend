@@ -12,6 +12,8 @@
 /build
 
 # misc
+docker-compose.yml
+Dockerfile
 .DS_Store
 .env.local
 .env.development.local
